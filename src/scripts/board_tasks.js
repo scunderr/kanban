@@ -14,7 +14,7 @@ export const addTask = e => {
         const boardField = boardButton.previousElementSibling;
         const boardFieldTemplate = `
             <div class="board__task" data-board-task>    
-                <textarea class="board__task-area" name="taskName" rows="1" placeholder="Введите имя задачи" data-board-task-textarea></textarea>
+                <textarea class="board__task-area" name="taskName" rows="1" placeholder="Введите название задачи" data-board-task-textarea></textarea>
             </div> 
         `;
         const task = board.querySelector('[data-board-task]');
