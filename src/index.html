@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kanban</title>
+
+
+    <link rel="icon" href="note.png" type="image/png">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://use.fontawesome.com/0399a972f2.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header-title" onmousedown="return false">
+                    <h1>KANBANIO</h1>
+                </div>
+                <div class="header__options">
+                    <button id="add-board-btn" class="header_options-button">
+                        <div class="header_options-badge"></div>
+                        <!-- <img class="header__button-img" src="assets/add-list.png" alt="add-board"> -->
+                        Создать новый борд
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <main class="boards">
+        <div class="container">
+            <div id="boardsField" class="boards__inner" data-boards-field>
+                <div id="board3" class="board" data-board>
+                    <div class="board__header" data-board-header>
+                        <div class="board__header-main" data-header-main>
+                            <div class="board__header-logo" data-board-header-logo>
+                                <i class="fa fa-bell-o" aria-hidden="true"></i>
+                            </div>
+                            <div class="board__header-title" data-header-title>
+                                Открытые
+                            </div>
+                        </div>
+                        <div class="board__header-menu" data-header-menu>
+                            <div class="board__header-counter"  onmousedown="return false" data-header-counter>0</div>
+                            <div class="board__header-arrow" data-header-arrow>
+                                <i class="fa fa-chevron-down" aria-hidden="true" data-arrow></i>
+                            </div>
+                            <div class="board_point" data-board-point>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="board__field" data-board-field>
+                        <!-- <div class="board__task">  
+                            <input class="board__input" type="text" id="boardInput">
+                        </div>
+                        <div class="board__task"> 
+                            <input class="board__input" type="text" id="boardInput">
+                        </div> -->
+                        <!-- <div class="board__task">    
+                            <textarea class="board__task-area" name="taskName" rows="1" placeholder="Введите имя задачи"></textarea>
+                        </div>  -->
+                    </div>
+                    <button class="board__footer" data-board-footer>
+                        <span class="board__footer-plus">+</span>
+                        Добавить задачу
+                    </button>
+                </div>
+                <div id="board2" class="board" data-board>
+                    <div class="board__header" data-board-header>
+                        <div class="board__header-main" data-header-main>
+                            <div class="board__header-logo" data-board-header-logo>
+                                <i class="fa fa-laptop" aria-hidden="true"></i>
+                            </div>
+                            <div class="board__header-title" data-header-title>
+                                В процессе
+                            </div>
+                        </div>
+                        <div class="board__header-menu" data-header-menu>
+                            <div class="board__header-counter"  onmousedown="return false" data-header-counter>0</div>
+                            <div class="board__header-arrow" data-header-arrow>
+                                <i class="fa fa-chevron-down" aria-hidden="true" data-arrow></i>
+                            </div>
+                            <div class="board_point" data-board-point>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="board__field" data-board-field>
+
+                    </div>
+                    <button class="board__footer" data-board-footer>
+                        <span class="board__footer-plus">+</span>
+                        Добавить задачу
+                    </button>
+                </div>
+                <div id="board1" class="board" data-board>
+                    <div class="board__header" data-board-header>
+                        <div class="board__header-main" data-header-main>
+                            <div class="board__header-logo" data-board-header-logo>
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                            </div>
+                            <div class="board__header-title" data-header-title>
+                                Завершенные
+                            </div>
+                        </div>
+                        <div class="board__header-menu" data-header-menu>
+                            <div class="board__header-counter"  onmousedown="return false" data-header-counter>0</div>
+                            <div class="board__header-arrow" data-header-arrow>
+                                <i class="fa fa-chevron-down board__arrow" aria-hidden="true" data-arrow></i>
+                            </div>
+                            <div class="board_point" data-board-point>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="board__field" data-board-field>
+
+                    </div>
+                    <button class="board__footer" data-board-footer>
+                        <span class="board__footer-plus">+</span>
+                        Добавить задачу
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div id="footerClock" class="footer_clock">
+
+                </div>
+            </div>
+        </div>        
+    </footer>
+
+    <!-- <script src="index.js"></script> -->
+    <!-- <script src="scripts/board_menu.js"></script>
+    <script src="scripts/icons.js"></script>
+    <script src="scripts/board_tasks.js"></script>
+    <script src="scripts/header_addBoard-btn.js"></script>
+    <script src="scripts/board_title.js"></script>
+    <script src="scripts/footer_clock.js"></script> -->
+</body>
+
+</html>
