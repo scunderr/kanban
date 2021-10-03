@@ -7,7 +7,6 @@ import './css/style.css';
 import './css/board_header.css';
 import './css/board_menu.css';
 
-
 const arrowBoardHeader = document.querySelector('[data-boards-field]');
 
 document.addEventListener('click', getHeaderMenu);

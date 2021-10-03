@@ -4,6 +4,8 @@ let taskBoardCounter = {
     board3: 0,
 };
 
+let animationStatus = false;
+
 // при нажатии на "добавить задачу"
 export const addTask = e => {
     const board = e.target.closest('[data-board]');
@@ -13,8 +15,9 @@ export const addTask = e => {
         const boardId = board.id;
         const boardField = boardButton.previousElementSibling;
         const boardFieldTemplate = `
-            <div class="board__task" data-board-task>    
-                <textarea class="board__task-area" name="taskName" rows="1" placeholder="Введите имя задачи" data-board-task-textarea></textarea>
+            <div class="board__task face-in-down" data-board-task>    
+                <textarea class="board__task-area" name="taskName" rows="1" placeholder="Введите название задачи"
+                data-board-task-textarea></textarea>
             </div> 
         `;
         const task = board.querySelector('[data-board-task]');
@@ -37,6 +40,7 @@ export const addTask = e => {
         taskBoardCounter[boardId] += 1;
 
         boardButton.closest('[data-board]').querySelector('[data-header-counter]').innerHTML = taskBoardCounter[boardId];
+        task.classList.remove('tremor');
     }
 };
 
@@ -52,6 +56,11 @@ document.addEventListener('click', e => {
         && !boardButton  
         && taskTextarea.value === '') {  
             task.remove();
+        }
+
+    if (e.target !== taskTextarea && e.target !== task && !boardButton) {
+        console.log(taskTextarea.innerHTML)
+        task.remove();
     }
     console.log(taskTextarea.value)
 });
@@ -67,3 +76,4 @@ document.addEventListener('click', e => {
 //         console.log(e.target)
 //     }
 // }); 
+
