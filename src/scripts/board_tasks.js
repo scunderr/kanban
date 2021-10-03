@@ -20,9 +20,17 @@ export const addTask = e => {
         const task = board.querySelector('[data-board-task]');
         const taskTextarea = board.querySelector('[data-board-task-textarea]');
 
+        if (animationStatus) {
+            setTimeout(() => {
+                task.classList.remove('tremor');
+            }, 500);
+        }
+        
         if (taskTextarea) {
-            // task.remove();
-            return task.classList.add('tremor')
+            animationStatus = true;
+            task.classList.add('tremor');
+            task.classList.remove('face-in-down');
+            return
         }
 
         boardField.insertAdjacentHTML('beforeend', boardFieldTemplate);
@@ -38,9 +46,24 @@ document.addEventListener('click', e => {
     const taskTextarea = document.querySelector('[data-board-task-textarea]');
     const boardButton = e.target.closest('[data-board-footer]');
 
-    if (task !== null && e.target !== taskTextarea && e.target !== task && !boardButton) {
-        task.remove();
-        console.log(e.target)
+    if (task !== null 
+        && e.target !== taskTextarea 
+        && e.target !== task 
+        && !boardButton  
+        && taskTextarea.value === '') {  
+            task.remove();
     }
+    console.log(taskTextarea.value)
 });
 
+// при нажатии за пределы "добавить задачу" и при заполненном инпуте
+// document.addEventListener('click', e => {
+//     const task = document.querySelector('[data-board-task]');
+//     const taskTextarea = document.querySelector('[data-board-task-textarea]');
+//     const boardButton = e.target.closest('[data-board-footer]');
+
+//     if (task !== null && e.target !== taskTextarea && e.target !== task && !boardButton) {
+//         task.remove();
+//         console.log(e.target)
+//     }
+// }); 
