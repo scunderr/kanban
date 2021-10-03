@@ -55,3 +55,16 @@ document.addEventListener('click', e => {
         task.remove();
     }
 });
+
+// при нажатии за пределы "добавить задачу" и при заполненом инпуте
+
+document.addEventListener('click', e => {
+    const task = document.querySelector('[data-board-task]');
+    const taskTextarea = document.querySelector('[data-board-task-textarea]');
+    const boardButton = e.target.closest('[data-board-footer]');
+
+    if (e.target !== taskTextarea && e.target !== task && !boardButton) {
+        console.log(taskTextarea.innerHTML)
+        task.remove();
+    }
+});
