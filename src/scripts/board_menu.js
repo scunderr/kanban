@@ -6,20 +6,11 @@ const headerColorSwitch = {
 };
 
 // const counterBoardHeader = document.querySelectorAll('[data-header-counter]');
-const removeArrow = (activeArrow) => {
+const stateСhangeArrow = (activeArrow, showing) => {
     const arrArrowBoardHeader = document.querySelectorAll('[data-header-arrow]');
     arrArrowBoardHeader.forEach(elem => {
         if (elem !== activeArrow) {
-            elem.style.visibility = 'hidden'
-        }
-    })
-}
-
-const createArrow = (activeArrow) => {
-    const arrArrowBoardHeader = document.querySelectorAll('[data-header-arrow]');
-    arrArrowBoardHeader.forEach(elem => {
-        if (elem !== activeArrow) {
-            elem.style.visibility = 'visible'
+            elem.style.visibility = showing;
         }
     })
 }
@@ -42,12 +33,13 @@ export const makesInvisibleArrow = e => {
 
 // События при клике на стрелку в хедере борда
 export const getHeaderMenu = e => {
-    const boardPoint = e.target.closest('[data-header-menu]').querySelector('[data-board-point]');
+    
     const arrowHeaderMenu = e.target.dataset.arrow;
     // const headerMenu = e.target.closest('[data-header-menu]');
     const styleMenu = document.querySelector('[data-style-menu]');
     
     if (arrowHeaderMenu !== undefined) {
+        const boardPoint = e.target.closest('[data-header-menu]').querySelector('[data-board-point]');
         const arrowHeaderChild = e.target.closest('[data-header-arrow]');
         const arrowParent = e.target.parentElement;
         if (styleMenu === null) {
@@ -92,14 +84,14 @@ export const getHeaderMenu = e => {
             boardPoint.innerHTML = template;
             arrowParent.innerHTML = icons.boardArrowIcons.chevronUp;
 
-            removeArrow(arrowHeaderChild);
+            stateСhangeArrow(arrowHeaderChild, 'hidden');
         }
 
         if (styleMenu !== null) {
             styleMenu.remove();
             arrowParent.innerHTML = icons.boardArrowIcons.chevronDown;
             // arrowHeaderMenu.style.opacity = '1';
-            createArrow(arrowHeaderChild);  
+            stateСhangeArrow(arrowHeaderChild, 'visible');  
         }
     }
 };
@@ -117,7 +109,7 @@ export const closeStyleMenu = (e) => {
             styleMenu.remove();
             headerMenu.innerHTML = icons.boardArrowIcons.chevronDown;
 
-            createArrow(arrowHeaderChild);
+            stateСhangeArrow(arrowHeaderChild, 'visible'); 
         }
     }  
 };
