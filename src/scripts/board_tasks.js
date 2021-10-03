@@ -4,6 +4,8 @@ let taskBoardCounter = {
     board3: 0,
 };
 
+let animationStatus = false;
+
 // при нажатии на "добавить задачу"
 export const addTask = e => {
     const board = e.target.closest('[data-board]');
@@ -13,22 +15,32 @@ export const addTask = e => {
         const boardId = board.id;
         const boardField = boardButton.previousElementSibling;
         const boardFieldTemplate = `
-            <div class="board__task" data-board-task>    
-                <textarea class="board__task-area" name="taskName" rows="1" placeholder="Введите имя задачи" data-board-task-textarea></textarea>
+            <div class="board__task face-in-down" data-board-task>    
+                <textarea class="board__task-area" name="taskName" rows="1" placeholder="Введите название задачи"
+                data-board-task-textarea></textarea>
             </div> 
         `;
         const task = board.querySelector('[data-board-task]');
         const taskTextarea = board.querySelector('[data-board-task-textarea]');
 
+        if (animationStatus) {
+            setTimeout(() => {
+                task.classList.remove('tremor');
+            }, 500);
+        }
+        
         if (taskTextarea) {
-            // task.remove();
-            return task.classList.add('tremor')
+            animationStatus = true;
+            task.classList.add('tremor');
+            task.classList.remove('face-in-down');
+            return
         }
 
         boardField.insertAdjacentHTML('beforeend', boardFieldTemplate);
         taskBoardCounter[boardId] += 1;
 
         boardButton.closest('[data-board]').querySelector('[data-header-counter]').innerHTML = taskBoardCounter[boardId];
+        task.classList.remove('tremor');
     }
 };
 
@@ -38,9 +50,8 @@ document.addEventListener('click', e => {
     const taskTextarea = document.querySelector('[data-board-task-textarea]');
     const boardButton = e.target.closest('[data-board-footer]');
 
-    if (task !== null && e.target !== taskTextarea && e.target !== task && !boardButton) {
+    if (e.target !== taskTextarea && e.target !== task && !boardButton) {
+        console.log(taskTextarea.innerHTML)
         task.remove();
-        console.log(e.target)
     }
 });
-
