@@ -39,6 +39,7 @@ export const getHeaderMenu = e => {
     const styleMenu = document.querySelector('[data-style-menu]');
     
     if (arrowHeaderMenu !== undefined) {
+        const board = e.target.closest('[data-board]');
         const boardPoint = e.target.closest('[data-header-menu]').querySelector('[data-board-point]');
         const arrowHeaderChild = e.target.closest('[data-header-arrow]');
         const arrowParent = e.target.parentElement;
@@ -93,6 +94,7 @@ export const getHeaderMenu = e => {
             // arrowHeaderMenu.style.opacity = '1';
             stateСhangeArrow(arrowHeaderChild, 'visible');  
         }
+        board.setAttribute('class', 'board')
     }
 };
 

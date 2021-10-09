@@ -1,0 +1,22 @@
+.board__footer {
+    display: flex;
+    color: #5E6C84;
+    justify-content: baseline;
+    font-size: 20px;
+    border: none;
+    background: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.board__footer:hover {
+    color: #87CEEB;
+}
+
+.board__footer-plus {
+    font-size: 28px;
+    margin-right: 3px;
+    display: flex;
+    line-height: 17px;
+    transform: translateY(5%);
+}

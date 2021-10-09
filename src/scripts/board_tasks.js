@@ -27,7 +27,7 @@ export const addTask = e => {
         if (animationStatus) {
             setTimeout(() => {
                 task.classList.remove('tremor');
-            }, 500);
+            }, 300);
         }
         
         if (taskTextarea) {

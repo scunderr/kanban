@@ -34,7 +34,7 @@
 .board_point {
     width: 1px;
     height: 1px;
-   position: relative;
+    position: relative;
 }
 
 .board__header-counter {

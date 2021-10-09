@@ -3,9 +3,8 @@ import { addTask } from './scripts/board_tasks.js'
 import { changeTitle } from './scripts/board_title.js'
 import { boardBtn, addBoardBtn } from './scripts/header_addBoard-btn.js'
 import './assets/add-list.png'
-import './css/style.css';
-import './css/board_header.css';
-import './css/board_menu.css';
+import './css/style.css'
+
 
 const arrowBoardHeader = document.querySelector('[data-boards-field]');
 
