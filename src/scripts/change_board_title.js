@@ -1,3 +1,5 @@
+import { statuses } from './statuses'
+
 export const changeTitle = e => {
     const targetDataset = e.target.dataset;
     const boardHeaderMain = e.target.closest('[data-header-main]');
@@ -6,12 +8,15 @@ export const changeTitle = e => {
 
     if (targetDataset.headerTitle !== undefined) {
         const template = `
-            <input class="board__header-input" type="text" value="${boardHeaderTitle.innerHTML.trim()}" 
+            <input class="board__header-input" type="text" value="" 
             onclick="this.select();" data-header-input>
         `;
 
         boardHeaderTitle.remove();
         boardHeaderMain.insertAdjacentHTML('beforeend', template);
+        const input = boardHeaderMain.querySelector('[data-header-input]')
+        input.focus();
+        statuses.titleStatus = true;
     }
 
     if (boardHeaderInput === null && boardHeaderTitle === null) {  

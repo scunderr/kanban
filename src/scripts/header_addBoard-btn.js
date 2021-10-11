@@ -1,3 +1,5 @@
+import {icons} from './icons.js';
+
 export const boardBtn = document.querySelector('#add-board-btn');
 
 export const addBoardBtn = () => {
@@ -9,10 +11,11 @@ export const addBoardBtn = () => {
             <div class="board__header" data-board-header>
                 <div class="board__header-main" data-header-main>
                     <div class="board__header-logo" data-board-header-logo>
-                        <i class="fa fa-bell-o" aria-hidden="true"></i>
+                        ${icons.boardLogoIcons.question}
                     </div>
                 <div class="board__header-title" data-header-title>
-                    Открытые
+                    <input class="board__header-input" type="text" 
+                    onclick="this.select();" data-header-input>
                 </div>
             </div>
             <div class="board__header-menu" data-header-menu>
@@ -36,8 +39,9 @@ export const addBoardBtn = () => {
     `;
 
     // taskBoardCounter[`board-${createdBoardId}`] = 0;
-    boardsField.insertAdjacentHTML('afterbegin', template)   
+    boardsField.insertAdjacentHTML('afterbegin', template);
+
+    const input = boardsField.querySelector('[data-header-input]')
+    
+    input.focus();
 };
-
-
-

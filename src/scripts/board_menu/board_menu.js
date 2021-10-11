@@ -1,9 +1,4 @@
-import {icons} from './icons.js';
-
-const headerColorSwitch = {
-    colorCode: null,
-    colorElement: null,
-};
+import {icons} from '../icons.js';
 
 // const counterBoardHeader = document.querySelectorAll('[data-header-counter]');
 const stateСhangeArrow = (activeArrow, showing) => {
@@ -33,7 +28,6 @@ export const makesInvisibleArrow = e => {
 
 // События при клике на стрелку в хедере борда
 export const getHeaderMenu = e => {
-    
     const arrowHeaderMenu = e.target.dataset.arrow;
     // const headerMenu = e.target.closest('[data-header-menu]');
     const styleMenu = document.querySelector('[data-style-menu]');
@@ -91,29 +85,10 @@ export const getHeaderMenu = e => {
         if (styleMenu !== null) {
             styleMenu.remove();
             arrowParent.innerHTML = icons.boardArrowIcons.chevronDown;
-            // arrowHeaderMenu.style.opacity = '1';
             stateСhangeArrow(arrowHeaderChild, 'visible');  
         }
         board.setAttribute('class', 'board')
     }
-};
-
-// События при клике на крестик в стайл-меню   
-export const closeStyleMenu = (e) => {
-    const styleMenu = document.querySelector('[data-style-menu]');
-    const arrowHeaderChild = e.target.closest('[data-header-arrow]');
-
-    if (styleMenu !== null) {
-        const closeButton = document.querySelector('[data-menu-close]');
-        
-        if (e.target.parentElement === closeButton) {
-            const headerMenu = e.target.closest('[data-header-menu]').querySelector('[data-header-arrow]');
-            styleMenu.remove();
-            headerMenu.innerHTML = icons.boardArrowIcons.chevronDown;
-
-            stateСhangeArrow(arrowHeaderChild, 'visible'); 
-        }
-    }  
 };
 
 // События при клике за пределами стайл-меню  
@@ -125,36 +100,3 @@ export const closeStyleMenu = (e) => {
 // //    }
 // });
 
-// События при клике на цвета и иконки в стайл-меню  
-document.addEventListener('click', e => {
-    const styleMenu = document.querySelector('[data-style-menu]');
-
-    if (styleMenu !== null) {
-        const boardHeader = e.target.closest('[data-board-header]');
-        const iconOption = e.target.dataset.headerIcon;
-        const colorOption = e.target.dataset.headerColor;
-       
-        if (colorOption) {
-            if (headerColorSwitch.colorCode !== null) {
-                const headerColors = e.target.parentElement.children;
-                
-                for(let elem of headerColors) {
-                    
-                    if (elem.dataset.headerColor === headerColorSwitch.colorElement.dataset.headerColor) {
-                        elem.style.width = '30px';
-                        elem.style.height = '30px';
-                    }
-                }  
-            }
-            boardHeader.style.background = colorOption;
-            e.target.style.width = '40px';
-            e.target.style.height = '40px';
-            headerColorSwitch.colorCode = colorOption;
-            headerColorSwitch.colorElement = e.target;
-        }
-
-        if (iconOption) {
-            styleMenu.closest('[data-board-header]').querySelector('[data-board-header-logo]').innerHTML = icons.boardLogoIcons[iconOption];
-        }
-    }  
-});
