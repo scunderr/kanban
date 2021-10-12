@@ -1,16 +1,22 @@
-import { getHeaderMenu, makesVisibleArrow, makesInvisibleArrow} from './scripts/board_menu/board_menu.js'
-import { closeStyleMenu } from './scripts/board_menu/close_style_menu.js'
+import { renderStartBoards } from './scripts/renderStartBoards'
+import { content } from './scripts/data/content'
 
-import { changesHeaderStyle } from './scripts/board_menu/changing_header_color_and_icon.js'
-import { addTask } from './scripts/board_tasks.js'
-import { changeTitle } from './scripts/change_board_title.js'
-import { removeBoard, removeInput } from './scripts/remove_new_board_without_title.js'
-
-import { boardBtn, addBoardBtn } from './scripts/header_addBoard-btn.js'
+import { getHeaderMenu, makesVisibleArrow, makesInvisibleArrow} from './scripts/board_menu/board_menu'
+import { closeStyleMenu } from './scripts/board_menu/close_style_menu'
+import { changesHeaderStyle } from './scripts/board_menu/changing_header_color_and_icon'
+import { addTask } from './scripts/board_tasks'
+import { changeTitle } from './scripts/change_board_title'
+import { removeBoard, removeInput } from './scripts/remove_new_board_without_title'
+import { boardBtn, addBoardBtn } from './scripts/header_addBoard-btn'
 import './assets/add-list.png'
 import './css/style.css'
 
 const arrowBoardHeader = document.querySelector('[data-boards-field]');
+
+content.startBoards.forEach((elem, index) => {
+    renderStartBoards(index)
+})
+
 
 document.addEventListener('click', getHeaderMenu);
 document.addEventListener('click', changesHeaderStyle);
@@ -24,3 +30,4 @@ document.addEventListener('click', changeTitle);
 document.addEventListener('click', removeBoard);
 document.addEventListener('click', removeInput);
 boardBtn.addEventListener('click', addBoardBtn);
+

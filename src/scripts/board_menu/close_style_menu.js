@@ -1,4 +1,5 @@
-import {icons} from '../icons.js';
+import { icons } from '../data/icons';
+import { stateСhangeArrow } from './board_menu';
 
 // События при клике на крестик в стайл-меню   
 export const closeStyleMenu = (e) => {

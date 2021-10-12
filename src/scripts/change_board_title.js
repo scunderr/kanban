@@ -1,4 +1,4 @@
-import { statuses } from './statuses'
+import { elements } from './data/elements'
 
 export const changeTitle = e => {
     const targetDataset = e.target.dataset;
@@ -7,6 +7,7 @@ export const changeTitle = e => {
     const boardHeaderInput = e.target.closest('[data-header-input]');
 
     if (targetDataset.headerTitle !== undefined) {
+        elements.boardTitle = boardHeaderTitle;
         const template = `
             <input class="board__header-input" type="text" value="" 
             onclick="this.select();" data-header-input>
@@ -16,7 +17,6 @@ export const changeTitle = e => {
         boardHeaderMain.insertAdjacentHTML('beforeend', template);
         const input = boardHeaderMain.querySelector('[data-header-input]')
         input.focus();
-        statuses.titleStatus = true;
     }
 
     if (boardHeaderInput === null && boardHeaderTitle === null) {  

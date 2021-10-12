@@ -1,7 +1,7 @@
-import {icons} from '../icons.js';
+import { icons } from '../data/icons';
 
 // const counterBoardHeader = document.querySelectorAll('[data-header-counter]');
-const stateСhangeArrow = (activeArrow, showing) => {
+export const stateСhangeArrow = (activeArrow, showing) => {
     const arrArrowBoardHeader = document.querySelectorAll('[data-header-arrow]');
     arrArrowBoardHeader.forEach(elem => {
         if (elem !== activeArrow) {

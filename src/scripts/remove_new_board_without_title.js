@@ -1,4 +1,5 @@
-import { statuses } from './statuses';
+import { statuses } from './data/statuses';
+import { elements } from './data/elements';
 
 // const titleStartBoard = board.querySelector('[data-header-title]')
 
@@ -33,14 +34,15 @@ export const removeBoard = e => {
 export const removeInput = e => {
     const input = document.querySelector('[data-header-input]');
     const board = input.closest('[data-board]');
-    const headerMain = board.querySelector('[data-header-title]'); 
+    const headerMain = board.querySelector('[data-header-main]'); 
     // const title = headerMain.querySelector('[data-header-title]'); 
     const defaultBoardConditions =  board.id === 'board1' 
                                     || board.id === 'board2' 
                                     || board.id === 'board3';    
 
-    if (defaultBoardConditions && input.value === '' && statuses.titleStatus && e.target !== headerMain) {
-        console.log(e.target)
-        console.log( headerMain)
+    if (defaultBoardConditions && input.value === '' && e.target !== elements.boardTitle) {
+        console.log('fsd')
+        input.remove();
+        headerMain.append(elements.boardTitle);
     }
 }
