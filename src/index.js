@@ -7,9 +7,9 @@ import { changesHeaderStyle } from './scripts/board_menu/changing_header_color_a
 import { addTask } from './scripts/board_tasks'
 import { changeTitle } from './scripts/change_board_title'
 import { removeBoard, removeInput } from './scripts/remove_new_board_without_title'
-import { boardBtn, addBoardBtn } from './scripts/header_addBoard-btn'
+import { boardBtn, addBoardBtn } from './scripts/add_board'
 import './assets/add-list.png'
-import './css/style.css'
+import './styles/style.css'
 
 const arrowBoardHeader = document.querySelector('[data-boards-field]');
 

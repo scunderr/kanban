@@ -42,6 +42,5 @@ export const addBoardBtn = () => {
     boardsField.insertAdjacentHTML('afterbegin', template);
 
     const input = boardsField.querySelector('[data-header-input]')
-    
     input.focus();
 };

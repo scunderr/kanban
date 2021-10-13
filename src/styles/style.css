@@ -38,8 +38,12 @@ h1 {
     background: rgba(127, 255, 212, .1);
 }
 
-.boards__inner {
-    padding-top: 15px;
+.board__inner {
+    padding: 0 20px;
+}
+
+.boards__field {
+    padding-top: 25px;
     display: flex;
     /* justify-content: space-around; */
     align-items: baseline;
