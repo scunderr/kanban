@@ -1,16 +1,13 @@
-import { content } from './data/content';
-
-export const renderStartBoards = (index) => {
-    const boardsField = document.querySelector('#boardsField')
-    const startBlockTemplate = `
-        <div id="${content.startBoards[index].id}" class="board" data-board>
+export const renderBoards = (dataBoard, index) => {
+     const boardTemplate = `
+        <div id="${dataBoard[index].id}" class="board" data-board>
             <div class="board__header" data-board-header>
                 <div class="board__header-main" data-header-main>
                     <div class="board__header-logo" data-board-header-logo>
-                        ${content.startBoards[index].icon}
+                        ${dataBoard[index].icon}
                     </div>
                     <div class="board__header-title" data-header-title>
-                        ${content.startBoards[index].title}
+                        ${dataBoard[index].title}
                     </div>
                 </div>
                 <div class="board__header-menu" data-header-menu>
@@ -32,8 +29,8 @@ export const renderStartBoards = (index) => {
             </button>
         </div>
         `;
-        
-    boardsField.insertAdjacentHTML('afterbegin', startBlockTemplate);
+        return boardTemplate;
 }
 
-
+// const boardsField = document.querySelector('#boardsField')
+// boardsField.insertAdjacentHTML('afterbegin', startBlockTemplate);

@@ -1,4 +1,4 @@
-import { renderStartBoards } from './scripts/renderStartBoards'
+import { renderBoards } from './scripts/renderStartBoards'
 import { content } from './scripts/data/content'
 
 import { getHeaderMenu, makesVisibleArrow, makesInvisibleArrow} from './scripts/board_menu/board_menu'
@@ -12,10 +12,12 @@ import { boardBtn, addBoardBtn } from './scripts/add_board'
 import './assets/add-list.png'
 import './styles/style.css'
 
+const boardsField = document.querySelector('#boardsField')
 const arrowBoardHeader = document.querySelector('[data-boards-field]');
+const dataStartBoard = content.startBoards;
 
 content.startBoards.forEach((elem, index) => {
-    renderStartBoards(index)
+    boardsField.insertAdjacentHTML('afterbegin', renderBoards(dataStartBoard, index));
 })
 
 
