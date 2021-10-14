@@ -1,4 +1,6 @@
 export const statuses = {
     boardStatus: false,
-    titleStatus: false
+    titleStatus: false,
+    taskAnimationStatus: false,
+    inputBoardAnimationStatus: false,
 }

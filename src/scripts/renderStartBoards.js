@@ -33,7 +33,7 @@ export const renderStartBoards = (index) => {
         </div>
         `;
         
-        boardsField.insertAdjacentHTML('beforeend', startBlockTemplate);
+    boardsField.insertAdjacentHTML('afterbegin', startBlockTemplate);
 }
 
 

@@ -58,3 +58,17 @@
     justify-content: center;
     opacity: 0;
 }
+
+.blinking {
+    animation: blinking ease-out 0.7s;  
+}
+
+@keyframes blinking {
+    0% {
+        background: rgb(221, 153, 144);
+    }
+
+    100% {
+        background: #fff;
+    }
+}

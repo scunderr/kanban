@@ -1,11 +1,11 @@
+import { statuses } from './data/statuses'
+import { delayRemovalAnimation } from './data/func'
 
 let taskBoardCounter = {
     board1: 0,
     board2: 0,
     board3: 0,
 };
-
-let animationStatus = false;
 
 // при нажатии на "добавить задачу"
 export const addTask = e => {
@@ -23,17 +23,19 @@ export const addTask = e => {
         `;
         const task = board.querySelector('[data-board-task]');
         const taskTextarea = board.querySelector('[data-board-task-textarea]');
+        // const delayRemovalOfTremor = () => {
+        //     setTimeout(() => task.classList.remove('tremor'), 300);
+        // }
 
-        if (animationStatus) {
-            setTimeout(() => {
-                task.classList.remove('tremor');
-            }, 300);
+        if (statuses.taskAnimationStatus) {
+            delayRemovalAnimation(task, 'tremor', 300);
         }
         
         if (taskTextarea) {
-            animationStatus = true;
+            statuses.taskAnimationStatus = true;
             task.classList.add('tremor');
             task.classList.remove('face-in-down');
+            delayRemovalAnimation(task, 'tremor', 300);
             return
         }
 
@@ -41,7 +43,7 @@ export const addTask = e => {
         taskBoardCounter[boardId] += 1;
 
         boardButton.closest('[data-board]').querySelector('[data-header-counter]').innerHTML = taskBoardCounter[boardId];
-        task.classList.remove('tremor');
+        // task.classList.remove('tremor');
     }
 };
 
@@ -50,30 +52,26 @@ document.addEventListener('click', e => {
     const task = document.querySelector('[data-board-task]');
     const taskTextarea = document.querySelector('[data-board-task-textarea]');
     const boardButton = e.target.closest('[data-board-footer]');
+    const taskConditions =  e.target !== taskTextarea 
+                            && e.target !== task 
+                            && !boardButton;
 
-    if (task !== null 
-        && e.target !== taskTextarea 
-        && e.target !== task 
-        && !boardButton  
-        && taskTextarea.value === '') {  
-            task.remove();
+    if (taskTextarea.value === '' && task !== null && taskConditions ) {  
+        task.remove();
     }
 
-    if (e.target !== taskTextarea 
-        && e.target !== task 
-        && !boardButton  
-        && taskTextarea.value !== '') {
-            const taskField = document.querySelector('[data-board-task-textarea]').closest('[data-board-field]');
-            const readyTaskTemplate = `
-                <div class="board__ready-task">
-                    <div class="board__ready-task-pin"></div>
-                    ${taskTextarea.value}
-                </div>
-            `;
+    if (taskTextarea.value !== '' && taskConditions ) {
+        const taskField = document.querySelector('[data-board-task-textarea]').closest('[data-board-field]');
+        const readyTaskTemplate = `
+            <div class="board__ready-task">
+                <div class="board__ready-task-pin"></div>
+                 ${taskTextarea.value}
+            </div>
+        `;
 
-            task.remove();
-            taskField.insertAdjacentHTML('beforeend', readyTaskTemplate);
-        }
+        task.remove();
+        taskField.insertAdjacentHTML('beforeend', readyTaskTemplate);
+    }
 });
 
 // при нажатии за пределы "добавить задачу" и при заполненном инпуте
