@@ -1,14 +1,15 @@
 import { renderBoards } from './scripts/renderStartBoards'
 import { content } from './scripts/data/content'
 
-import { getHeaderMenu, makesVisibleArrow, makesInvisibleArrow} from './scripts/board_menu/board_menu'
-import { closeStyleMenu } from './scripts/board_menu/close_style_menu'
-import { changesHeaderStyle } from './scripts/board_menu/changing_header_color_and_icon'
-import { addTask } from './scripts/board_tasks'
-import { changeTitle } from './scripts/change_board_title'
-import { removeBoard } from './scripts/remove_new_board_without_title'
-import { removeInput } from './scripts/remove_input'
-import { boardBtn, addBoardBtn } from './scripts/add_board'
+import { getHeaderMenu, makesVisibleArrow, makesInvisibleArrow} from './scripts/events_board_menu/board_menu'
+import { closeStyleMenu } from './scripts/events_board_menu/close_style_menu'
+import { changesHeaderStyle } from './scripts/events_board_menu/changing_header_color_and_icon'
+import { addTask } from './scripts/events_tasks/clickAddTask'
+import { removeTaskTextarea } from './scripts/events_tasks/removeEmptyTask'
+import { changeTitle } from './scripts/events_boards/change_board_title'
+import { removeBoard } from './scripts/events_boards/remove_new_board_without_title'
+import { removeInput } from './scripts/events_boards/remove_header_input'
+import { boardBtn, addBoard } from './scripts/events_boards/add_board'
 import './assets/add-list.png'
 import './styles/style.css'
 
@@ -29,8 +30,9 @@ arrowBoardHeader.addEventListener('mouseout', makesInvisibleArrow);
 
 document.addEventListener('click', closeStyleMenu);
 document.addEventListener('click', addTask);
+document.addEventListener('click', removeTaskTextarea)
 document.addEventListener('click', changeTitle);
 document.addEventListener('click', removeBoard);
 document.addEventListener('click', removeInput);
-boardBtn.addEventListener('click', addBoardBtn);
+boardBtn.addEventListener('click', addBoard);
 

@@ -1,4 +1,4 @@
-import { elements } from "./data/elements";
+import { elements } from "../data/elements";
 
 export const removeInput = e => {
     const input = document.querySelector('[data-header-input]');

@@ -1,4 +1,4 @@
-import { elements } from './data/elements'
+import { elements } from '../data/elements'
 
 export const changeTitle = e => {
     const targetDataset = e.target.dataset;
